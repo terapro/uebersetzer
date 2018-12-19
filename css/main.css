@@ -1,0 +1,29 @@
+body {
+  padding: 20px;
+}
+
+div.container {
+  display: flex;
+}
+div.container > div {
+  flex: 1;
+  padding: 20px;
+}
+
+textarea {
+  width: 100%;
+  font-size: 18px;
+}
+
+.button {
+  border: 2px solid blue;
+  height: 22px;
+  cursor: pointer;
+}
+
+.container2 {
+  display: flex;
+}
+.container2 > div {
+  flex: 0 0 auto;
+}
