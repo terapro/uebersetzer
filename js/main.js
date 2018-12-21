@@ -7,17 +7,25 @@ function fn() {
 
   function feedNextSentence() {
     const text = document.getElementById("100-textFeeder").value;
-    lev200textFeeder.blur();
     const boundChar = findLastSentenceChar(text);
-    lev100textFeeder.value = text.slice(boundChar + 1);
-    lev200textFeeder.value = text.slice(0, boundChar + 1);
-  }
+    let newText = text.slice(boundChar + 1);
+    let sentence = text.slice(0, boundChar + 1);
+    sentence = removeEmptySpaceAtStart(sentence);
+    newText = removeEmptySpaceAtStart(newText);
 
-  // Lib
-
-  function findLastSentenceChar(text) {
-    return text.search(/[!.?]/);
+    lev100textFeeder.value = newText;
+    lev200textFeeder.value = sentence;
   }
 
   lev200nextSentence.addEventListener("click", feedNextSentence);
+}
+
+// Lib
+
+function findLastSentenceChar(text) {
+  return text.search(/[!.?]/);
+}
+
+function removeEmptySpaceAtStart(text) {
+  return text.replace(/^\s+/, "");
 }
